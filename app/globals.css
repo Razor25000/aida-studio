@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+/* ============================================================
+ * A'IDA — Design tokens (bound from DESIGN.md + tokens.css)
+ * Source : muwpgd9m-DESIGN.md / muwpgd9q-tokens.css
+ * Palette : off-white ink + red accent (monochrome premium)
+ * ============================================================ */
+
+@theme {
+  /* Colors */
+  --color-bg:      #FCFCFC;
+  --color-ink:     #080807;
+  --color-muted:   #4a4a4a;
+  --color-accent:  #D30000;
+  --color-line:    rgba(8, 8, 7, 0.08);
+  --color-input-bg:#FFFFFF;
+
+  /* Fonts (system stack fallback; PP Neue Montreal loads via @font-face if licensed) */
+  --font-display:  "PP Neue Montreal Variable", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body:     var(--font-display);
+
+  /* Type scale */
+  --text-display:  clamp(64px, 8vw, 152px);
+  --text-h2:       clamp(40px, 5vw, 80px);
+  --text-h3:       clamp(24px, 3vw, 40px);
+  --text-body:     20px;
+  --text-eyebrow:  12px;
+
+  /* Layout */
+  --container-max: 1440px;
+  --container-pad: 48px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-power4: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* ============================================================
+ * Base
+ * ============================================================ */
+
+html {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ============================================================
+ * Utility classes
+ * ============================================================ */
+
+.container-x {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+@media (max-width: 768px) {
+  .container-x { padding-inline: 24px; }
+}
+
+.eyebrow {
+  font-size: var(--text-eyebrow);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+.h-display {
+  font-size: var(--text-display);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  font-family: var(--font-display);
+}
+
+.h-2 {
+  font-size: var(--text-h2);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+}
+
+.h-3 {
+  font-size: var(--text-h3);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.text-muted { color: var(--color-muted); }
+.text-accent { color: var(--color-accent); }
+
+.divide-y > * + * { border-top: 1px solid var(--color-line); }
+.divide-x > * + * { border-left: 1px solid var(--color-line); }
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: var(--color-ink);
+  color: var(--color-bg);
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: transform 0.3s var(--ease-out), background 0.3s var(--ease-out);
+}
+
+.btn-pill:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-line);
+  border-radius: 0;
+  font-size: 15px;
+  font-weight: 500;
+  transition: border-color 0.3s var(--ease-out);
+}
+
+.btn-ghost:hover { border-color: var(--color-ink); }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background: var(--color-ink);
+  color: var(--color-bg);
+  z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+/* ============================================================
+ * GSAP + motion helpers
+ * ============================================================ */
+
+/* Elements flagged .reveal are visible by default. GSAP setupReveals uses
+ * fromTo({opacity:0}, {opacity:1, immediateRender:false}) so the content stays
+ * visible if ScrollTrigger never fires (tab throttle, JS error, etc.). */
+.reveal {
+  will-change: opacity;
+}
+
+.reveal-clip {
+  clip-path: inset(100% 0 0 0);
+  will-change: clip-path;
+}
+
+.parallax-img {
+  will-change: transform;
+  scale: 1.16;          /* overflow buffer for scroll transform */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-clip {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: inset(0) !important;
+  }
+  .parallax-img { scale: 1 !important; transform: none !important; }
+}
+
+/* ============================================================
+ * Custom cursor (desktop only)
+ * ============================================================ */
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  pointer-events: none;
+  z-index: 99;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out);
+}
+
+.cursor-dot.is-hover {
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 1024px), (hover: none) {
+  .cursor-dot { display: none; }
+}
+
+/* ============================================================
+ * Gallery — Kononenko 7-cycle asymmetric rhythm
+ * Used on architecture/[slug] detail pages
+ * ============================================================ */
+
+.gallery {
+  display: grid;
+  gap: clamp(24px, 3vw, 64px);
+  margin-block: clamp(48px, 6vw, 96px);
+}
+
+.gallery > .g-full   { grid-column: 1 / -1; aspect-ratio: 16/9; max-height: 70vh; }
+.gallery > .g-pair   { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 3vw, 64px); }
+.gallery > .g-pair > * { aspect-ratio: 4/3; max-height: 55vh; }
+.gallery > .g-single { grid-column: 2 / -1; aspect-ratio: 3/2; max-height: 60vh; margin-right: 5%; }
+.gallery > .g-trio   { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 32px); }
+.gallery > .g-trio > * { aspect-ratio: 4/3; max-height: 45vh; }
+
+.gallery > * > * {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-line);
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .gallery > .g-pair,
+  .gallery > .g-trio { grid-template-columns: 1fr; }
+  .gallery > .g-single { grid-column: 1 / -1; margin-right: 0; }
+}

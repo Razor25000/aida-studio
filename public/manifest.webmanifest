@@ -1,0 +1,13 @@
+{
+  "name": "A'IDA — Atelier d'Architectes, Designers & Ingénieurs",
+  "short_name": "A'IDA",
+  "description": "Atelier pluridisciplinaire entre Paris et Singapour. Architecture, design et ingénierie depuis 2015.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FCFCFC",
+  "theme_color": "#FCFCFC",
+  "icons": [
+    { "src": "/icon", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-icon", "sizes": "180x180", "type": "image/png" }
+  ]
+}

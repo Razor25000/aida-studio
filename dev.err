@@ -1,0 +1,279 @@
+ ⚠ You are using a non-standard "NODE_ENV" value in your environment. This creates inconsistencies in the project and is strongly advised against. Read more: https://nextjs.org/docs/messages/non-standard-node-env
+ ⨯ ./app/globals.css
+Module parse failed: Unexpected character '@' (1:0)
+> @import "tailwindcss";
+| 
+| /* ============================================================
+
+Import trace for requested module:
+./app/globals.css
+./app/layout.tsx
+ ⨯ ./app/globals.css
+Module parse failed: Unexpected character '@' (1:0)
+> @import "tailwindcss";
+| 
+| /* ============================================================
+
+Import trace for requested module:
+./app/globals.css
+./app/layout.tsx
+ ⨯ [Error: Cannot find module 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next\server\middleware-manifest.json'
+Require stack:
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\next-server.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\dev\next-dev-server.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\next.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\lib\start-server.js] {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ ./app/globals.css
+Module parse failed: Unexpected character '@' (1:0)
+> @import "tailwindcss";
+| 
+| /* ============================================================
+
+Import trace for requested module:
+./app/globals.css
+./app/layout.tsx
+[Error: Cannot find module 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next\server\middleware-manifest.json'
+Require stack:
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\next-server.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\dev\next-dev-server.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\next.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\lib\start-server.js] {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ ./app/globals.css
+Module parse failed: Unexpected character '@' (1:0)
+> @import "tailwindcss";
+| 
+| /* ============================================================
+
+Import trace for requested module:
+./app/globals.css
+./app/layout.tsx
+[Error: ENOENT: no such file or directory, open 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\dev\\SEMGRE~2\\opencode\\aida-nextjs\\.next\\routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, stat 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next\cache\webpack\client-development\0.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\dev\\SEMGRE~2\\opencode\\aida-nextjs\\.next\\cache\\webpack\\client-development\\0.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next\cache\webpack\client-development\0.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\dev\\SEMGRE~2\\opencode\\aida-nextjs\\.next\\cache\\webpack\\client-development\\0.pack.gz'
+}
+ ⨯ unhandledRejection:  [Error: ENOENT: no such file or directory, stat 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next\cache\webpack\client-development\0.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\dev\\SEMGRE~2\\opencode\\aida-nextjs\\.next\\cache\\webpack\\client-development\\0.pack.gz'
+}
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next\cache\webpack\client-development\0.pack.gz'
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+ ⨯ ./app/globals.css
+Module parse failed: Unexpected character '@' (1:0)
+> @import "tailwindcss";
+| 
+| /* ============================================================
+
+Import trace for requested module:
+./app/globals.css
+./app/layout.tsx
+ ⨯ ./app/globals.css
+Module parse failed: Unexpected character '@' (1:0)
+> @import "tailwindcss";
+| 
+| /* ============================================================
+
+Import trace for requested module:
+./app/globals.css
+./app/layout.tsx
+ ⨯ [Error: Cannot find module 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next-build\server\middleware-manifest.json'
+Require stack:
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\next-server.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\dev\next-dev-server.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\next.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\lib\start-server.js] {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ ./app/globals.css
+Module parse failed: Unexpected character '@' (1:0)
+> @import "tailwindcss";
+| 
+| /* ============================================================
+
+Import trace for requested module:
+./app/globals.css
+./app/layout.tsx
+[Error: Cannot find module 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next-build\server\middleware-manifest.json'
+Require stack:
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\next-server.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\dev\next-dev-server.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\next.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\lib\start-server.js] {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ ./app/globals.css
+Module parse failed: Unexpected character '@' (1:0)
+> @import "tailwindcss";
+| 
+| /* ============================================================
+
+Import trace for requested module:
+./app/globals.css
+./app/layout.tsx
+[Error: ENOENT: no such file or directory, open 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next-build\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\dev\\SEMGRE~2\\opencode\\aida-nextjs\\.next-build\\routes-manifest.json'
+}
+ ⨯ [Error: Cannot find module 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next-build\server\middleware-manifest.json'
+Require stack:
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\next-server.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\dev\next-dev-server.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\next.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\lib\start-server.js] {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[Error: Cannot find module 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next-build\server\middleware-manifest.json'
+Require stack:
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\next-server.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\dev\next-dev-server.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\next.js
+- C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\next\dist\server\lib\start-server.js] {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[Error: ENOENT: no such file or directory, open 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next-build\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\dev\\SEMGRE~2\\opencode\\aida-nextjs\\.next-build\\routes-manifest.json'
+}
+ ⨯ Module not found: Error: Can't resolve 'next-flight-client-entry-loader' in 'C:\dev\SEMGRE~2\opencode\aida-nextjs'
+[Error: ENOENT: no such file or directory, stat 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next-build\cache\webpack\client-development\2.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\dev\\SEMGRE~2\\opencode\\aida-nextjs\\.next-build\\cache\\webpack\\client-development\\2.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next-build\cache\webpack\client-development\2.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\dev\\SEMGRE~2\\opencode\\aida-nextjs\\.next-build\\cache\\webpack\\client-development\\2.pack.gz'
+}
+ ⨯ unhandledRejection:  [Error: ENOENT: no such file or directory, stat 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next-build\cache\webpack\client-development\2.pack.gz'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'C:\\dev\\SEMGRE~2\\opencode\\aida-nextjs\\.next-build\\cache\\webpack\\client-development\\2.pack.gz'
+}
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next-build\cache\webpack\client-development\2.pack.gz'
+ ⨯ ./node_modules/@swc/helpers/cjs/_interop_require_default.cjs
+Module build failed: Error: ENOENT: no such file or directory, open 'C:\dev\SEMGRE~2\opencode\aida-nextjs\node_modules\@swc\helpers\cjs\_interop_require_default.cjs'
+
+Import trace for requested module:
+./node_modules/@swc/helpers/cjs/_interop_require_default.cjs
+ ⨯ ../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:11:1
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-index.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-next-dev.js
+ ⨯ ../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:11:1
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-index.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-next-dev.js
+ ⨯ ../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:11:1
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-index.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-next-dev.js
+ ⨯ ../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:11:1
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-index.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-next-dev.js
+ ⨯ ../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:11:1
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-index.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-next-dev.js
+ ⨯ ../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:11:1
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-index.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-next-dev.js
+ ⨯ ../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:11:1
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-index.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-next-dev.js
+ ⨯ ../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:11:1
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-index.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-next-dev.js
+ ⨯ ../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:11:1
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-index.js
+../../../semgrep_tmp/opencode/aida-nextjs/node_modules/.pnpm/next@15.5.27_@types+node@22_2063e57eb082cd21062162425be72318/node_modules/next/dist/client/app-next-dev.js
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+[Error: ENOENT: no such file or directory, open 'C:\dev\SEMGRE~2\opencode\aida-nextjs\.next-build\prerender-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\dev\\SEMGRE~2\\opencode\\aida-nextjs\\.next-build\\prerender-manifest.json'
+}

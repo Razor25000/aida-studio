@@ -1,0 +1,65 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# testing
+coverage/
+
+# next.js
+.next/
+.next-build/
+out/
+build/
+
+# production
+dist/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+*.err
+*.err.log
+*.out.log
+dev*.log
+dev*.err
+check*.log
+check*.err
+clean*.js
+path-test.js
+perm-test*.js
+rename.js
+build-clean.ps1
+clean.bat
+rename.bat
+start-dev.cmd
+*.tmp*
+.tmp-*
+.tmp-git.cjs
+
+# env files
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+
+# audit (internal — generated locally)
+aida-nextjs.local-audit/
+
+# IndexNow key (secret in production)
+*-indexnow-key.txt
+*.local-indexnow-key.txt
