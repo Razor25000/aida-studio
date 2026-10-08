@@ -63,37 +63,45 @@ export default function DesignPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <section className="container-x pt-20 pb-16 md:pt-32 md:pb-20">
-        <p className="eyebrow reveal">Pôle design</p>
-        <h1 className="text-4xl md:text-6xl mt-6 font-medium tracking-tight reveal">
-          Penser l&rsquo;objet comme une architecture à petite échelle.
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg reveal">
-          Mobilier sur mesure, scénographie commerciale, signalétique retail.
-          Le pôle design d&rsquo;A&rsquo;IDA prolonge le travail architectural du
-          studio&nbsp;: un objet bien conçu dialogue avec l&rsquo;espace qui
-          l&rsquo;accueille.
-        </p>
+        <div className="space-y-6" data-reveal-group>
+          <p className="eyebrow" data-reveal-child>Pôle design</p>
+          <h1
+            className="text-4xl md:text-6xl font-medium tracking-tight"
+            data-reveal-child
+          >
+            Penser l&rsquo;objet comme une architecture à petite échelle.
+          </h1>
+          <p className="max-w-2xl text-lg" data-reveal-child>
+            Mobilier sur mesure, scénographie commerciale, signalétique retail.
+            Le pôle design d&rsquo;A&rsquo;IDA prolonge le travail architectural du
+            studio&nbsp;: un objet bien conçu dialogue avec l&rsquo;espace qui
+            l&rsquo;accueille.
+          </p>
+        </div>
       </section>
 
       <div className="container-x space-y-16 md:space-y-24 pb-24 md:pb-32">
         {designProjects.map((p, i) => (
           <article
             key={p.title}
-            className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 border-t border-[var(--color-line)] pt-8 md:pt-12 reveal"
+            className="reveal-mask"
           >
-            <div className="md:col-span-3">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted">
-                {String(i + 1).padStart(2, "0")} · {p.year}
-              </p>
-              <p className="mt-1 text-xs text-muted">{p.context}</p>
-            </div>
-            <div className="md:col-span-9">
-              <h2 className="text-2xl md:text-3xl font-medium tracking-tight">
-                {p.title}
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-ink/85">
-                {p.description}
-              </p>
+            <div className="divider-draw mb-8 md:mb-12" />
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12">
+              <div className="md:col-span-3">
+                <p className="text-xs uppercase tracking-[0.2em] text-muted">
+                  {String(i + 1).padStart(2, "0")} · {p.year}
+                </p>
+                <p className="mt-1 text-xs text-muted">{p.context}</p>
+              </div>
+              <div className="md:col-span-9">
+                <h2 className="text-2xl md:text-3xl font-medium tracking-tight">
+                  {p.title}
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-ink/85">
+                  {p.description}
+                </p>
+              </div>
             </div>
           </article>
         ))}
@@ -105,7 +113,12 @@ export default function DesignPage() {
             Un objet à dessiner&nbsp;?
           </h2>
           <div className="md:col-span-4 flex md:justify-end">
-            <Link href="/contact" className="btn-pill">
+            <Link
+              href="/contact"
+              className="btn-pill"
+              data-magnetic="0.25"
+              data-cursor-text="Écrire →"
+            >
               Nous contacter →
             </Link>
           </div>

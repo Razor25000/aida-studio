@@ -61,15 +61,17 @@ export default function ArchitectureIndex() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <section className="container-x pt-20 pb-16 md:pt-32 md:pb-20">
-        <p className="eyebrow reveal">19 projets · 5 catégories · 7 pays</p>
-        <h1 className="h-display mt-6 reveal">Architecture.</h1>
-        <p className="mt-8 max-w-2xl text-lg reveal">
-          Des maisons individuelles en Argentine aux déploiements retail à
-          travers l&rsquo;Asie. Le travail d&rsquo;architecture d&rsquo;A&rsquo;IDA
-          équilibre savoir-faire, programme et budget à travers des projets
-          résidentiels, de rénovation, commerciaux, d&rsquo;intérieur et de
-          recherche.
-        </p>
+        <div className="space-y-6" data-reveal-group>
+          <p className="eyebrow" data-reveal-child>19 projets · 5 catégories · 7 pays</p>
+          <h1 className="h-display" data-reveal-child>Architecture.</h1>
+          <p className="max-w-2xl text-lg" data-reveal-child>
+            Des maisons individuelles en Argentine aux déploiements retail à
+            travers l&rsquo;Asie. Le travail d&rsquo;architecture d&rsquo;A&rsquo;IDA
+            équilibre savoir-faire, programme et budget à travers des projets
+            résidentiels, de rénovation, commerciaux, d&rsquo;intérieur et de
+            recherche.
+          </p>
+        </div>
       </section>
 
       <div className="container-x space-y-24 md:space-y-32">
@@ -81,11 +83,17 @@ export default function ArchitectureIndex() {
                 {String(g.items.length).padStart(2, "0")} projets
               </p>
             </div>
-            <div className="border-b border-[var(--color-line)] mb-10" />
+            <div className="divider-draw mb-10" />
 
-            <div className={`grid grid-cols-1 ${g.items.length === 2 ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3"} gap-x-6 gap-y-12`}>
+            <div
+              className={`grid grid-cols-1 ${g.items.length === 2 ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3"} gap-x-6 gap-y-12`}
+              data-reveal-group
+              data-reveal-stagger="0.06"
+            >
               {g.items.map((p) => (
-                <ProjectCard key={p.slug} project={p} />
+                <div key={p.slug} data-reveal-child data-cursor-text="Voir le projet">
+                  <ProjectCard project={p} />
+                </div>
               ))}
             </div>
           </section>
@@ -96,7 +104,12 @@ export default function ArchitectureIndex() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
           <h2 className="md:col-span-8 h-2">Un projet en tête&nbsp;?</h2>
           <div className="md:col-span-4 flex md:justify-end">
-            <Link href="/contact" className="btn-pill">
+            <Link
+              href="/contact"
+              className="btn-pill"
+              data-magnetic="0.25"
+              data-cursor-text="Écrire →"
+            >
               Nous contacter →
             </Link>
           </div>

@@ -110,16 +110,21 @@ export default function AboutPage() {
       />
 
       <section className="container-x pt-20 pb-16 md:pt-32 md:pb-20">
-        <p className="eyebrow reveal">L'atelier</p>
-        <h1 className="text-4xl md:text-6xl mt-6 font-medium tracking-tight reveal">
-          Trois Français, deux cultures, une méthode.
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg reveal">
-          A&rsquo;IDA (Atelier d&rsquo;Ingénieurs, Designers et Architectes) est
-          un studio pluridisciplinaire fondé en 2020. Nous concevons des
-          espaces, des objets et des structures en croisant systématiquement
-          trois cultures&nbsp;: architecture, design, ingénierie.
-        </p>
+        <div className="space-y-6" data-reveal-group>
+          <p className="eyebrow" data-reveal-child>L&rsquo;atelier</p>
+          <h1
+            className="text-4xl md:text-6xl font-medium tracking-tight"
+            data-reveal-child
+          >
+            Trois Français, deux cultures, une méthode.
+          </h1>
+          <p className="max-w-2xl text-lg" data-reveal-child>
+            A&rsquo;IDA (Atelier d&rsquo;Ingénieurs, Designers et Architectes) est
+            un studio pluridisciplinaire fondé en 2020. Nous concevons des
+            espaces, des objets et des structures en croisant systématiquement
+            trois cultures&nbsp;: architecture, design, ingénierie.
+          </p>
+        </div>
       </section>
 
       {/* ========== FONDATEURS ========== */}
@@ -127,17 +132,21 @@ export default function AboutPage() {
         className="container-x py-16 md:py-24 border-t border-[var(--color-line)]"
         aria-labelledby="founders-heading"
       >
-        <p className="eyebrow reveal">Les fondateurs</p>
+        <p className="eyebrow">Les fondateurs</p>
         <h2
           id="founders-heading"
-          className="text-3xl md:text-4xl mt-4 font-medium tracking-tight reveal"
+          className="text-3xl md:text-4xl mt-4 font-medium tracking-tight"
         >
           Trois parcours, un studio.
         </h2>
 
-        <div className="mt-12 space-y-12">
+        <div className="mt-12 space-y-12" data-reveal-group>
           {founders.map((f) => (
-            <article key={f.name} className="grid grid-cols-1 md:grid-cols-12 gap-6 reveal">
+            <article
+              key={f.name}
+              className="grid grid-cols-1 md:grid-cols-12 gap-6"
+              data-reveal-child
+            >
               <div className="md:col-span-4">
                 <h3 className="text-2xl font-medium tracking-tight">{f.name}</h3>
                 <p className="mt-1 text-sm text-muted">{f.role}</p>
@@ -155,17 +164,25 @@ export default function AboutPage() {
         className="container-x py-24 md:py-32 border-t border-[var(--color-line)]"
         aria-labelledby="method-heading"
       >
-        <p className="eyebrow reveal">Méthode</p>
+        <p className="eyebrow">Méthode</p>
         <h2
           id="method-heading"
-          className="text-3xl md:text-4xl mt-4 font-medium tracking-tight reveal"
+          className="text-3xl md:text-4xl mt-4 font-medium tracking-tight"
         >
           Quatre principes de travail.
         </h2>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
+        <div
+          className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12"
+          data-reveal-group
+          data-reveal-stagger="0.1"
+        >
           {method.map((m) => (
-            <article key={m.step} className="border-l-2 border-accent pl-6 reveal">
+            <article
+              key={m.step}
+              className="border-l-2 border-accent pl-6"
+              data-reveal-child
+            >
               <p className="text-xs uppercase tracking-[0.2em] text-muted">{m.step}</p>
               <h3 className="text-xl font-medium mt-3">{m.title}</h3>
               <p className="mt-3 text-base text-ink/85 leading-relaxed">
@@ -181,17 +198,25 @@ export default function AboutPage() {
         className="container-x py-24 md:py-32 border-t border-[var(--color-line)]"
         aria-labelledby="recognition-heading"
       >
-        <p className="eyebrow reveal">Reconnaissance</p>
+        <p className="eyebrow">Reconnaissance</p>
         <h2
           id="recognition-heading"
-          className="text-3xl md:text-4xl mt-4 font-medium tracking-tight reveal"
+          className="text-3xl md:text-4xl mt-4 font-medium tracking-tight"
         >
           Prix, publications, présence.
         </h2>
 
-        <ul className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <ul
+          className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8"
+          data-reveal-group
+          data-reveal-stagger="0.1"
+        >
           {recognitions.map((r) => (
-            <li key={r.title} className="border-l-2 border-accent pl-6 reveal">
+            <li
+              key={r.title}
+              className="border-l-2 border-accent pl-6"
+              data-reveal-child
+            >
               <p className="text-xs uppercase tracking-[0.2em] text-muted">
                 {r.year}
               </p>
@@ -212,7 +237,12 @@ export default function AboutPage() {
             Travaillons ensemble.
           </h2>
           <div className="md:col-span-4 flex md:justify-end">
-            <Link href="/contact" className="btn-pill">
+            <Link
+              href="/contact"
+              className="btn-pill"
+              data-magnetic="0.25"
+              data-cursor-text="Écrire →"
+            >
               Nous contacter →
             </Link>
           </div>

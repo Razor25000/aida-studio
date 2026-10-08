@@ -82,16 +82,21 @@ export default function PublicationPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <section className="container-x pt-20 pb-16 md:pt-32 md:pb-20">
-        <p className="eyebrow reveal">Presse &amp; publications</p>
-        <h1 className="text-4xl md:text-6xl mt-6 font-medium tracking-tight reveal">
-          Sélection de mentions et de publications.
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg reveal">
-          Le travail d&rsquo;A&rsquo;IDA a été distingué par les SRA Awards
-          (Singapour, 2022) et les UPSTARTS (Asie, 2022), référencé par
-          ArchDaily et l&rsquo;Ordre des architectes, et présenté à la Milan
-          Design Week et à la Paris Design Week.
-        </p>
+        <div className="space-y-6" data-reveal-group>
+          <p className="eyebrow" data-reveal-child>Presse &amp; publications</p>
+          <h1
+            className="text-4xl md:text-6xl font-medium tracking-tight"
+            data-reveal-child
+          >
+            Sélection de mentions et de publications.
+          </h1>
+          <p className="max-w-2xl text-lg" data-reveal-child>
+            Le travail d&rsquo;A&rsquo;IDA a été distingué par les SRA Awards
+            (Singapour, 2022) et les UPSTARTS (Asie, 2022), référencé par
+            ArchDaily et l&rsquo;Ordre des architectes, et présenté à la Milan
+            Design Week et à la Paris Design Week.
+          </p>
+        </div>
       </section>
 
       <section
@@ -101,32 +106,32 @@ export default function PublicationPage() {
         <h2 id="articles-heading" className="sr-only">Articles et distinctions</h2>
         <div className="space-y-12">
           {pressArticles.map((a) => (
-            <article
-              key={a.title}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6 border-t border-[var(--color-line)] pt-8 reveal"
-            >
-              <div className="md:col-span-3">
-                <p className="text-xs uppercase tracking-[0.2em] text-muted">{a.year}</p>
-                <p className="mt-1 text-sm font-medium">{a.source}</p>
-              </div>
-              <div className="md:col-span-9">
-                <h3 className="text-2xl font-medium tracking-tight">
-                  {a.href ? (
-                    <a
-                      href={a.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-accent underline-offset-4 hover:underline"
-                    >
-                      {a.title} ↗
-                    </a>
-                  ) : (
-                    a.title
-                  )}
-                </h3>
-                <p className="mt-3 text-base leading-relaxed text-ink/85">
-                  {a.description}
-                </p>
+            <article key={a.title} className="reveal-mask">
+              <div className="divider-draw mb-8" />
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                <div className="md:col-span-3">
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted">{a.year}</p>
+                  <p className="mt-1 text-sm font-medium">{a.source}</p>
+                </div>
+                <div className="md:col-span-9">
+                  <h3 className="text-2xl font-medium tracking-tight">
+                    {a.href ? (
+                      <a
+                        href={a.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-underline hover:text-accent"
+                      >
+                        {a.title} ↗
+                      </a>
+                    ) : (
+                      a.title
+                    )}
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-ink/85">
+                    {a.description}
+                  </p>
+                </div>
               </div>
             </article>
           ))}
@@ -137,18 +142,26 @@ export default function PublicationPage() {
         className="container-x py-16 md:py-24 border-t border-[var(--color-line)]"
         aria-labelledby="profiles-heading"
       >
-        <p className="eyebrow reveal">Annuaires &amp; profils</p>
+        <p className="eyebrow">Annuaires &amp; profils</p>
         <h2 id="profiles-heading" className="sr-only">Annuaires et profils professionnels</h2>
-        <ul className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+        <ul
+          className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm"
+          data-reveal-group
+          data-reveal-stagger="0.05"
+        >
           {profiles.map((p) => (
-            <li key={p.href} className="border-b border-[var(--color-line)] py-3">
+            <li
+              key={p.href}
+              className="border-b border-[var(--color-line)] py-3"
+              data-reveal-child
+            >
               <a
                 href={p.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-ink flex items-center justify-between"
+                className="hover:text-ink flex items-center justify-between link-underline"
               >
-                <span className="underline-offset-4 hover:underline">{p.label}</span>
+                <span>{p.label}</span>
                 <span className="text-muted">↗</span>
               </a>
             </li>
@@ -160,11 +173,19 @@ export default function PublicationPage() {
         className="container-x py-16 md:py-24 border-t border-[var(--color-line)]"
         aria-labelledby="events-heading"
       >
-        <p className="eyebrow reveal">Événements</p>
+        <p className="eyebrow">Événements</p>
         <h2 id="events-heading" className="sr-only">Présence en événements</h2>
-        <ul className="mt-8 space-y-3 text-sm">
+        <ul
+          className="mt-8 space-y-3 text-sm"
+          data-reveal-group
+          data-reveal-stagger="0.04"
+        >
           {events.map((e) => (
-            <li key={e.year + e.label} className="flex gap-4 border-b border-[var(--color-line)] py-3">
+            <li
+              key={e.year + e.label}
+              className="flex gap-4 border-b border-[var(--color-line)] py-3"
+              data-reveal-child
+            >
               <span className="text-muted w-16 shrink-0">{e.year}</span>
               <span>{e.label}</span>
             </li>
@@ -178,7 +199,12 @@ export default function PublicationPage() {
             Demande presse ou partenariat&nbsp;?
           </h2>
           <div className="md:col-span-4 flex md:justify-end">
-            <Link href="/contact" className="btn-pill">
+            <Link
+              href="/contact"
+              className="btn-pill"
+              data-magnetic="0.25"
+              data-cursor-text="Écrire →"
+            >
               Nous contacter →
             </Link>
           </div>

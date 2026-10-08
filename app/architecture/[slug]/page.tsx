@@ -112,50 +112,55 @@ export default async function ArchitectureDetail({
 
       <article>
         <section className="container-x pt-12 pb-8">
-          <Link href="/architecture" className="text-xs uppercase tracking-[0.2em] text-muted hover:text-ink">
+          <Link
+            href="/architecture"
+            className="text-xs uppercase tracking-[0.2em] text-muted link-underline"
+          >
             ← Tous les projets
           </Link>
-          <div className="mt-8 flex items-baseline gap-4">
-            <span className="text-xs uppercase tracking-[0.2em] text-muted">
-              {project.num}
-            </span>
-            <span className="text-xs uppercase tracking-[0.2em] text-muted">
-              {project.category}
-            </span>
+          <div className="mt-8" data-reveal-group>
+            <div className="flex items-baseline gap-4" data-reveal-child>
+              <span className="text-xs uppercase tracking-[0.2em] text-muted">
+                {project.num}
+              </span>
+              <span className="text-xs uppercase tracking-[0.2em] text-muted">
+                {project.category}
+              </span>
+            </div>
+            <h1 className="h-display mt-4" data-reveal-child>{project.name}</h1>
+            <p className="mt-2 text-lg text-muted" data-reveal-child>{project.location}</p>
           </div>
-          <h1 className="h-display mt-4">{project.name}</h1>
-          <p className="mt-2 text-lg text-muted">{project.location}</p>
         </section>
 
         <ProjectHero project={project} />
 
         <section className="container-x py-16 md:py-24 grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-7 space-y-6 reveal">
+          <div className="md:col-span-7 space-y-6 reveal-mask">
             {project.description.map((p, i) => (
               <p key={i} className="text-lg leading-relaxed">
                 {p}
               </p>
             ))}
           </div>
-          <dl className="md:col-span-4 md:col-start-9 space-y-6 text-sm reveal">
-            <div>
+          <dl className="md:col-span-4 md:col-start-9 space-y-6 text-sm reveal" data-reveal-group>
+            <div data-reveal-child>
               <dt className="eyebrow">Catégorie</dt>
               <dd className="mt-1">{project.category}</dd>
             </div>
-            <div>
+            <div data-reveal-child>
               <dt className="eyebrow">Localisation</dt>
               <dd className="mt-1">{project.location}</dd>
             </div>
-            <div>
+            <div data-reveal-child>
               <dt className="eyebrow">Statut</dt>
               <dd className="mt-1">{project.status}</dd>
             </div>
-            <div>
+            <div data-reveal-child>
               <dt className="eyebrow">Année</dt>
               <dd className="mt-1">{project.year}</dd>
             </div>
             {project.area && (
-              <div>
+              <div data-reveal-child>
                 <dt className="eyebrow">Surface</dt>
                 <dd className="mt-1">{project.area}</dd>
               </div>
@@ -176,7 +181,12 @@ export default async function ArchitectureDetail({
               <h3 className="h-2 mt-4">{next.name}</h3>
             </div>
             <div className="md:col-span-4 flex md:justify-end">
-              <Link href={`/architecture/${next.slug}`} className="btn-pill">
+              <Link
+                href={`/architecture/${next.slug}`}
+                className="btn-pill"
+                data-magnetic="0.25"
+                data-cursor-text="Continuer →"
+              >
                 Continuer →
               </Link>
             </div>
