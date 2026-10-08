@@ -1,0 +1,11 @@
+name: IndexNow
+on:
+  push:
+    branches: [main]
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit URLs to IndexNow
+        run: |
+          curl -X POST "https://api.indexnow.org/indexnow?url=https://www.a-ida.fr&key=YOUR_KEY_HERE"
