@@ -591,8 +591,9 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <p className="mt-12 text-xs text-muted" itemProp="dateModified" dateTime={lastUpdated}>
-          Dernière mise à jour&nbsp;: <time dateTime={lastUpdated}>8 octobre 2026</time>
+        <p className="mt-12 text-xs text-muted">
+          Dernière mise à jour&nbsp;:{" "}
+          <time dateTime={lastUpdated} itemProp="dateModified">8 octobre 2026</time>
         </p>
       </section>
     </>
