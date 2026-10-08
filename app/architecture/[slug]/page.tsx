@@ -142,7 +142,11 @@ export default async function ArchitectureDetail({
               </p>
             ))}
           </div>
-          <dl className="md:col-span-4 md:col-start-9 space-y-6 text-sm reveal" data-reveal-group>
+          <dl
+            className="md:col-span-4 md:col-start-9 space-y-6 text-sm md:sticky md:top-28 md:self-start"
+            data-sticky-meta
+            data-reveal-group
+          >
             <div data-reveal-child>
               <dt className="eyebrow">Catégorie</dt>
               <dd className="mt-1">{project.category}</dd>

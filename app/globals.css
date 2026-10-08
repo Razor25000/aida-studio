@@ -309,6 +309,99 @@ html.js .reveal {
 }
 
 /* ============================================================
+ * Hero — pinned scroll-scrubbed
+ * ============================================================ */
+
+.hero-grid line {
+  stroke: rgba(252, 252, 252, 0.16);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  transform-box: fill-box;
+}
+
+.hero-grid .grid-h {
+  transform-origin: left center;
+}
+
+.hero-grid .grid-v {
+  transform-origin: center top;
+}
+
+.hero-scroll-line {
+  transform-origin: top center;
+  animation: scroll-line 2.4s var(--ease-out) infinite;
+}
+
+@keyframes scroll-line {
+  0% { transform: scaleY(0); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+/* ============================================================
+ * Marquee — infinite horizontal band
+ * ============================================================ */
+
+.marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  --marquee-speed: 40s;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll var(--marquee-speed) linear infinite;
+  will-change: transform;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2.5rem;
+  padding-inline: 1.25rem;
+  white-space: nowrap;
+}
+
+.marquee-text {
+  font-size: clamp(28px, 4vw, 64px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+.marquee-sep {
+  font-size: clamp(20px, 2.5vw, 36px);
+  color: var(--color-accent);
+}
+
+@keyframes marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .hero-scroll-line { animation: none; }
+}
+
+/* ============================================================
+ * Page transition (app/template.tsx)
+ * ============================================================ */
+
+/* No will-change/transform here — it would create a containing block and
+ * break the hero's `position: sticky`. GSAP clears its inline transform
+ * after the entrance (clearProps: "transform"). */
+.page-enter {
+  opacity: 1;
+}
+
+/* ============================================================
  * Gallery — Kononenko 7-cycle asymmetric rhythm
  * Used on architecture/[slug] detail pages
  * ============================================================ */

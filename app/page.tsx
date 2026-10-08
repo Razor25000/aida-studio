@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ProjectCardFeatured } from "./components/ProjectCardFeatured";
+import { Marquee } from "./components/Marquee";
 import {
   architectureProjects,
   featuredProjectSlugs,
@@ -286,35 +287,58 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      {/* ========== HERO ========== */}
+      {/* ========== HERO — pinned scroll-scrubbed ========== */}
       <section
-        className="relative h-[78vh] md:h-[88vh] overflow-hidden"
-        data-pinned-hero
+        className="relative h-[150vh] md:h-[200vh]"
+        data-hero-scroll
         aria-label="Présentation A'IDA"
       >
-        <Image
-          src="/img/imgi_72_%C2%A9JUANJEREZ_A_IDA-PING-PANG-PARIS-0986.jpg"
-          alt="Vue intérieure du flagship PING PANG Store, Paris 13e — projet retail piloté par A'IDA en 2021"
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          className="object-cover hero-image parallax-img"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent" />
+        <div className="sticky top-0 h-screen w-full overflow-hidden">
+          <Image
+            src="/img/imgi_72_%C2%A9JUANJEREZ_A_IDA-PING-PANG-PARIS-0986.jpg"
+            alt="Vue intérieure du flagship PING PANG Store, Paris 13e — projet retail piloté par A'IDA en 2021"
+            fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
+            className="object-cover hero-image parallax-img"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
 
-        <div className="absolute inset-0 flex items-end">
-          <div className="container-x pb-16 md:pb-24">
-            <p className="eyebrow text-bg reveal">Paris · Singapour · depuis 2020</p>
-            <h1
-              className="h-display mt-4 md:mt-6 text-bg max-w-4xl"
-              data-split
-            >
-              Architecture. Design. Ingénierie.
-            </h1>
-            <p className="mt-6 max-w-xl text-bg/90 reveal">
-              A&rsquo;IDA est un atelier pluridisciplinaire qui pense l&rsquo;espace comme un système&nbsp;: structure, usage, matière. Cinq ans de projets entre l&rsquo;Europe et l&rsquo;Asie.
-            </p>
+          {/* Architectural grid overlay — draws itself on scroll */}
+          <svg
+            aria-hidden="true"
+            className="hero-grid absolute inset-0 w-full h-full pointer-events-none"
+            preserveAspectRatio="none"
+            data-hero-grid
+          >
+            <line className="grid-h" x1="0" y1="25%" x2="100%" y2="25%" />
+            <line className="grid-h" x1="0" y1="50%" x2="100%" y2="50%" />
+            <line className="grid-h" x1="0" y1="75%" x2="100%" y2="75%" />
+            <line className="grid-v" x1="25%" y1="0" x2="25%" y2="100%" />
+            <line className="grid-v" x1="50%" y1="0" x2="50%" y2="100%" />
+            <line className="grid-v" x1="75%" y1="0" x2="75%" y2="100%" />
+          </svg>
+
+          <div className="absolute inset-0 flex items-end hero-content">
+            <div className="container-x pb-16 md:pb-24">
+              <p className="eyebrow text-bg hero-fade">Paris · Singapour · depuis 2020</p>
+              <h1
+                className="h-display mt-4 md:mt-6 text-bg max-w-4xl hero-title"
+                data-split
+              >
+                Architecture. Design. Ingénierie.
+              </h1>
+              <p className="mt-6 max-w-xl text-bg/90 hero-fade">
+                A&rsquo;IDA est un atelier pluridisciplinaire qui pense l&rsquo;espace comme un système&nbsp;: structure, usage, matière. Cinq ans de projets entre l&rsquo;Europe et l&rsquo;Asie.
+              </p>
+            </div>
+          </div>
+
+          {/* Scroll hint */}
+          <div className="hero-scroll-hint absolute bottom-6 right-6 md:bottom-8 md:right-8 flex items-center gap-3 text-bg/70">
+            <span className="text-[10px] uppercase tracking-[0.25em]">Scroll</span>
+            <span aria-hidden="true" className="hero-scroll-line block w-px h-10 bg-bg/50" />
           </div>
         </div>
       </section>
@@ -589,6 +613,30 @@ export default function Home() {
             </li>
           ))}
         </ul>
+      </section>
+
+      {/* ========== MARQUEE — global reach ========== */}
+      <section
+        className="py-16 md:py-24 border-t border-[var(--color-line)] overflow-hidden"
+        aria-label="Villes et territoires d'intervention"
+      >
+        <Marquee
+          items={[
+            "Paris",
+            "Singapour",
+            "Shenzhen",
+            "Doha",
+            "Riyad",
+            "Séoul",
+            "Sydney",
+            "Hô Chi Minh",
+            "Hainan",
+            "Buenos Aires",
+            "Val Thorens",
+            "Gwangju",
+          ]}
+          speed={48}
+        />
       </section>
 
       {/* ========== CTA ========== */}

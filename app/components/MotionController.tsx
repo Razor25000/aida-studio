@@ -42,6 +42,7 @@ export function MotionController() {
     const ctx = gsap.context(() => {
       setupCursor();
       setupHero();
+      setupHeroScroll();
       setupReveals();
       setupParallax();
       setupSplitText();
@@ -51,6 +52,7 @@ export function MotionController() {
       setupDividers();
       setupImageReveals();
       setupLegacyReveal();
+      setupStickyMeta();
     });
 
     // Refresh after fonts/layout settle
@@ -151,6 +153,62 @@ function setupCursor() {
     if (target.closest("[data-cursor-text]")) {
       labelOpacity = 0;
     }
+  });
+}
+
+function setupHeroScroll() {
+  // Pinned scroll-scrubbed hero: image scales + drifts, title lifts out, grid draws
+  document.querySelectorAll<HTMLElement>("[data-hero-scroll]").forEach((section) => {
+    const image = section.querySelector<HTMLElement>(".hero-image");
+    const title = section.querySelector<HTMLElement>(".hero-title");
+    const content = section.querySelector<HTMLElement>(".hero-content");
+    const hint = section.querySelector<HTMLElement>(".hero-scroll-hint");
+    const hLines = section.querySelectorAll<SVGLineElement>(".grid-h");
+    const vLines = section.querySelectorAll<SVGLineElement>(".grid-v");
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.6,
+      },
+    });
+
+    if (image) tl.to(image, { scale: 1.18, yPercent: -6, ease: "none" }, 0);
+    if (content) tl.to(content, { y: -60, ease: "none" }, 0);
+    if (title) tl.to(title, { opacity: 0.15, ease: "none" }, 0);
+    if (hint) tl.to(hint, { opacity: 0, ease: "none" }, 0);
+
+    if (hLines.length) {
+      gsap.set(hLines, { scaleX: 0 });
+      tl.to(hLines, { scaleX: 1, stagger: 0.08, ease: "none" }, 0);
+    }
+    if (vLines.length) {
+      gsap.set(vLines, { scaleY: 0 });
+      tl.to(vLines, { scaleY: 1, stagger: 0.08, ease: "none" }, 0.1);
+    }
+  });
+}
+
+function setupStickyMeta() {
+  // Fade sticky metadata panel in as it locks (project detail pages)
+  document.querySelectorAll<HTMLElement>("[data-sticky-meta]").forEach((el) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
   });
 }
 
