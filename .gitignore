@@ -3,6 +3,9 @@ node_modules/
 .pnp
 .pnp.js
 
+# use pnpm only (delete package-lock.json to avoid conflict)
+package-lock.json
+
 # testing
 coverage/
 
@@ -19,7 +22,7 @@ dist/
 .DS_Store
 *.pem
 
-# debug
+# debug + dev scripts
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -29,9 +32,12 @@ yarn-error.log*
 *.out.log
 dev*.log
 dev*.err
+dev2*.err
+prod*.err
 check*.log
 check*.err
-clean*.js
+check.js
+clean.js
 path-test.js
 perm-test*.js
 rename.js
@@ -42,6 +48,7 @@ start-dev.cmd
 *.tmp*
 .tmp-*
 .tmp-git.cjs
+.tmp-msg.txt
 
 # env files
 .env*.local
