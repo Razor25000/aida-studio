@@ -163,10 +163,10 @@ const disciplines = [
 ];
 
 const credentials = [
-  { label: "2020", value: "Année de fondation" },
-  { label: "8 pays", value: "de projets livrés" },
-  { label: "3 fondateurs", value: "Architectes, designers, ingénieurs" },
-  { label: "3 awards", value: "SRA · UPSTARTS · YAC" },
+  { value: 2020, displayValue: "2020", suffix: "", valueText: "Année de fondation" },
+  { value: 8, displayValue: "8", suffix: " pays", valueText: "de projets livrés" },
+  { value: 3, displayValue: "3", suffix: "", valueText: "fondateurs architectes, designers, ingénieurs" },
+  { value: 3, displayValue: "3", suffix: "", valueText: "awards internationaux (SRA · UPSTARTS · YAC)" },
 ];
 
 const awards = [
@@ -327,12 +327,17 @@ export default function Home() {
         <h2 id="disciplines-heading" className="sr-only">
           Trois disciplines, une méthode
         </h2>
-        <p className="eyebrow reveal">3 disciplines · 1 méthode</p>
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+        <p className="eyebrow">3 disciplines · 1 méthode</p>
+        <div
+          className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16"
+          data-reveal-group
+        >
           {disciplines.map((d, i) => (
-            <div key={d.label} className="reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+            <div key={d.label} data-reveal-child>
               <p className="text-eyebrow text-muted">{String(i + 1).padStart(2, "0")}</p>
-              <h3 className="text-2xl md:text-3xl font-medium tracking-tight mt-3">{d.label}</h3>
+              <h3 className="text-2xl md:text-3xl font-medium tracking-tight mt-3">
+                {d.label}
+              </h3>
               <p className="mt-1 text-xs text-muted">{d.count}</p>
               <p className="mt-5 text-base leading-relaxed text-ink/85">
                 {d.blurb}
@@ -362,9 +367,15 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12"
+          data-reveal-group
+          data-reveal-stagger="0.1"
+        >
           {featured.map((p, i) => (
-            <ProjectCardFeatured key={p.slug} project={p} index={i} />
+            <div key={p.slug} data-reveal-child data-cursor-text="Voir le projet">
+              <ProjectCardFeatured project={p} index={i} />
+            </div>
           ))}
         </div>
 
@@ -425,9 +436,16 @@ export default function Home() {
 
         <dl className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-[var(--color-line)] pt-12">
           {credentials.map((c) => (
-            <div key={c.label}>
-              <dt className="text-3xl md:text-4xl font-medium tracking-tight">{c.label}</dt>
-              <dd className="mt-2 text-sm text-muted">{c.value}</dd>
+            <div key={c.valueText}>
+              <dt
+                className="text-3xl md:text-4xl font-medium tracking-tight"
+                data-count={c.value}
+                data-count-suffix={c.suffix}
+                data-count-duration="1.8"
+              >
+                {c.displayValue}{c.suffix}
+              </dt>
+              <dd className="mt-2 text-sm text-muted">{c.valueText}</dd>
             </div>
           ))}
         </dl>
@@ -586,7 +604,12 @@ export default function Home() {
             Vous avez un projet en tête&nbsp;?
           </h2>
           <div className="md:col-span-4 flex md:justify-end">
-            <Link href="/contact" className="btn-pill">
+            <Link
+              href="/contact"
+              className="btn-pill"
+              data-magnetic="0.25"
+              data-cursor-text="Écrire →"
+            >
               Nous contacter →
             </Link>
           </div>

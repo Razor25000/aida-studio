@@ -175,7 +175,25 @@ img {
  * fromTo({opacity:0}, {opacity:1, immediateRender:false}) so the content stays
  * visible if ScrollTrigger never fires (tab throttle, JS error, etc.). */
 .reveal {
-  will-change: opacity;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+html.js .reveal {
+  /* GSAP will take over once the page hydrates */
+  transform: translateY(18px);
+}
+
+.reveal-mask {
+  will-change: transform, clip-path;
+}
+
+.img-reveal {
+  overflow: hidden;
+  will-change: opacity, transform;
+}
+.img-reveal > img {
+  will-change: transform;
 }
 
 .reveal-clip {
@@ -217,12 +235,77 @@ img {
 }
 
 .cursor-dot.is-hover {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
+}
+
+.cursor-label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  background: var(--color-bg);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
 }
 
 @media (max-width: 1024px), (hover: none) {
-  .cursor-dot { display: none; }
+  .cursor-dot,
+  .cursor-label { display: none; }
+}
+
+/* ============================================================
+ * Magnetic / hover micro-interactions
+ * ============================================================ */
+
+[data-magnetic] {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Underline draw on hover for nav links and inline links */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* ============================================================
+ * Divider draw animation (used with gsap setupDividers)
+ * ============================================================ */
+
+.divider-draw {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--color-line);
+  transform: scaleX(0);
+  transform-origin: left center;
 }
 
 /* ============================================================
