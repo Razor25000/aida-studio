@@ -13,17 +13,67 @@ const REDUCED_MOTION =
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/**
+ * Page-level scroll animations. Call this from `app/template.tsx` so it
+ * re-runs on EVERY navigation (App Router re-mounts template per route).
+ * Without this, client-side navigation would leave new `.reveal` nodes
+ * stuck at their CSS opacity:0 default (the bug: hidden contact form).
+ *
+ * Returns a cleanup that reverts every tween created for the page.
+ */
+export function runPageAnimations(scope?: Element | null): () => void {
+  if (typeof window === "undefined") return () => {};
+
+  if (REDUCED_MOTION) {
+    document
+      .querySelectorAll(".reveal, .reveal-clip, .reveal-mask")
+      .forEach((el) => {
+        (el as HTMLElement).style.opacity = "1";
+        (el as HTMLElement).style.clipPath = "none";
+        (el as HTMLElement).style.transform = "none";
+      });
+    return () => {};
+  }
+
+  const ctx = gsap.context(() => {
+    setupHero();
+    setupHeroScroll();
+    setupReveals();
+    setupParallax();
+    setupSplitText();
+    setupPinnedHero();
+    setupMagnetic();
+    setupCountUp();
+    setupDividers();
+    setupImageReveals();
+    setupLegacyReveal();
+    setupStickyMeta();
+  }, scope ?? document.body);
+
+  // Failsafe: if any .reveal is still hidden after 1.5s, force it visible
+  // (scroll triggers throttled, tab switch during init, JS edge cases…).
+  const failsafe = window.setTimeout(() => {
+    document.querySelectorAll<HTMLElement>(".reveal").forEach((el) => {
+      const o = parseFloat(getComputedStyle(el).opacity);
+      if (!Number.isFinite(o) || o < 0.95) el.style.opacity = "1";
+    });
+  }, 1500);
+
+  const refreshTimer = window.setTimeout(() => ScrollTrigger.refresh(), 300);
+
+  return () => {
+    window.clearTimeout(failsafe);
+    window.clearTimeout(refreshTimer);
+    ctx.revert();
+  };
+}
+
 export function MotionController() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     document.documentElement.classList.add("js");
 
-    if (REDUCED_MOTION) {
-      document
-        .querySelectorAll(".reveal, .reveal-clip")
-        .forEach((el) => el.classList.remove("reveal", "reveal-clip"));
-      return;
-    }
+    if (REDUCED_MOTION) return;
 
     // Lenis smooth scroll — synced with GSAP ticker so ScrollTrigger stays smooth
     const lenis = new Lenis({
@@ -41,33 +91,9 @@ export function MotionController() {
 
     const ctx = gsap.context(() => {
       setupCursor();
-      setupHero();
-      setupHeroScroll();
-      setupReveals();
-      setupParallax();
-      setupSplitText();
-      setupPinnedHero();
-      setupMagnetic();
-      setupCountUp();
-      setupDividers();
-      setupImageReveals();
-      setupLegacyReveal();
-      setupStickyMeta();
     });
 
-    // Refresh after fonts/layout settle
-    const refreshTimer = window.setTimeout(() => {
-      ScrollTrigger.refresh();
-      lenis.scrollTo(0, { immediate: true });
-    }, 400);
-
-    // Failsafe: if any .reveal is still hidden after 1.5s, force it visible
-    const failsafe = window.setTimeout(() => {
-      document.querySelectorAll<HTMLElement>(".reveal").forEach((el) => {
-        const o = parseFloat(getComputedStyle(el).opacity);
-        if (!Number.isFinite(o) || o < 0.95) el.style.opacity = "1";
-      });
-    }, 1500);
+    const refreshTimer = window.setTimeout(() => ScrollTrigger.refresh(), 400);
 
     const onVisibility = () => {
       if (!document.hidden) {
@@ -82,7 +108,6 @@ export function MotionController() {
 
     return () => {
       window.clearTimeout(refreshTimer);
-      window.clearTimeout(failsafe);
       document.removeEventListener("visibilitychange", onVisibility);
       gsap.ticker.remove(lenisRaf);
       lenis.destroy();
